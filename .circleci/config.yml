@@ -1,20 +1,11 @@
 version: 2
 jobs:
-  checkout:
-    working_directory: ~/trial-test
-    docker:
-      - image: ruby:2.5.1
-        environment:
-          - RAILS_ENV: test
-    steps:
-      - checkout
-
+  build:
   build_docker_image:
     working_directory: ~/trial-test
     docker:
       - image: docker:17.06.0-ce-git
     steps:
-      - checkout
       - setup_remote_docker:
           version: 17.06.0-ce
       - run:
