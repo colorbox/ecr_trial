@@ -17,6 +17,8 @@ jobs:
           command: |
             docker build -t colorbox/trial .
       - run:
-          name: Test aws command with eval
+          name: Push application Docker image to ECR
           command: |
-            eval $(aws help|grep ecr)
+            eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
+            docker tag test_for_colorbox:latest ${ECR_REPOSITORY_URI}:latest
+            docker push ${ECR_REPOSITORY_URI}:latest
