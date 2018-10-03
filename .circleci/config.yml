@@ -16,3 +16,7 @@ jobs:
           name: Build application Docker image
           command: |
             docker build -t colorbox/trial .
+      - run:
+          name: Test aws command with eval
+          command: |
+            eval $(aws help|grep ecr)
