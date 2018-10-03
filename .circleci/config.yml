@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Build application Docker image
           command: |
-            docker build -t colorbox/trial .
+            docker build -t test_for_colorbox .
       - run:
           name: Push application Docker image to ECR
           command: |
